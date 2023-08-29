@@ -10,14 +10,14 @@ model = pickle.load(open("prediction.pkl", "rb"))
 st.title('Diabetes Prediction Web App')
     
     # To get the input data from the user
-Pregnancies = st.number_input('Number of Pregnancies')
+Pregnancies = st.number_input('Number of Pregnancies',step=1, format="%d")
 Glucose = st.number_input('Glucose Level')
 BloodPressure = st.number_input('Blood Pressure value')
 SkinThickness = st.number_input('Skin Thickness value')
 Insulin = st.number_input('Insulin Level')
 BMI = st.number_input('BMI value')
 DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function value')
-Age = st.number_input('Age of person')
+Age = st.number_input('Age of person',step=1, format="%d")
     
 new_data=scaler.transform([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
 predict=model.predict(new_data)
